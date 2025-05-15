@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.1-alpha.2 (2025-05-15)
+
+Full Changelog: [v0.0.1-alpha.1...v0.0.1-alpha.2](https://github.com/octogen-systems/octogen-ts-api/compare/v0.0.1-alpha.1...v0.0.1-alpha.2)
+
+### Chores
+
+* update SDK settings ([111bf93](https://github.com/octogen-systems/octogen-ts-api/commit/111bf93e3749c60f4ebdc3bdbaebf293ade221cb))
+
 ## 0.0.1-alpha.1 (2025-05-15)
 
 Full Changelog: [v0.0.1-alpha.0...v0.0.1-alpha.1](https://github.com/octogen-systems/octogen-ts-api/compare/v0.0.1-alpha.0...v0.0.1-alpha.1)
