@@ -685,7 +685,7 @@ export namespace SearchToolOutput {
     /**
      * Extra product attributes.
      */
-    additional_attributes?: Record<string, Product.AdditionalAttributes | null> | null;
+    additional_attributes?: { [key: string]: Product.AdditionalAttributes | null } | null;
 
     /**
      * Target group associated with the product.
@@ -898,7 +898,7 @@ export namespace SearchToolOutput {
       /**
        * Extra product attributes.
        */
-      additional_attributes?: Record<string, HasVariant.AdditionalAttributes | null> | null;
+      additional_attributes?: { [key: string]: HasVariant.AdditionalAttributes | null } | null;
 
       /**
        * Target group associated with the product.
