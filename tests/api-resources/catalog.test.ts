@@ -85,9 +85,9 @@ describe('resource catalog', () => {
       limit: 0,
       price_max: 0,
       price_min: 0,
-      ranking_embedding_column: 'ranking_embedding_column',
+      ranking_embedding_columns: ['embedding'],
       ranking_text: 'ranking_text',
-      retrieval_embedding_column: 'retrieval_embedding_column',
+      retrieval_embedding_columns: ['embedding'],
     });
   });
 
