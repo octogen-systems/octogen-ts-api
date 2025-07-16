@@ -224,6 +224,11 @@ export namespace ColorInfo {
     label: string;
 
     /**
+     * The hex code of the color.
+     */
+    hex_code?: string | null;
+
+    /**
      * A URL pointing to the color swatch image.
      */
     swatch_url?: string | null;
