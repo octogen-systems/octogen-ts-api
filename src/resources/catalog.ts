@@ -224,6 +224,11 @@ export namespace ColorInfo {
     label: string;
 
     /**
+     * The hex code of the color.
+     */
+    hex_code?: string | null;
+
+    /**
      * A URL pointing to the color swatch image.
      */
     swatch_url?: string | null;
@@ -685,7 +690,7 @@ export namespace SearchToolOutput {
     /**
      * Extra product attributes.
      */
-    additional_attributes?: Record<string, Product.AdditionalAttributes | null> | null;
+    additional_attributes?: { [key: string]: Product.AdditionalAttributes | null } | null;
 
     /**
      * Target group associated with the product.
@@ -898,7 +903,7 @@ export namespace SearchToolOutput {
       /**
        * Extra product attributes.
        */
-      additional_attributes?: Record<string, HasVariant.AdditionalAttributes | null> | null;
+      additional_attributes?: { [key: string]: HasVariant.AdditionalAttributes | null } | null;
 
       /**
        * Target group associated with the product.
@@ -1293,7 +1298,8 @@ export interface CatalogStyleAndTagsSearchParams {
 export interface CatalogTextSearchParams {
   /**
    * The text is converted to a vector embedding and used to search for products in
-   * the e-commerce catalog with pre-computed product embeddings.
+   * the e-commerce catalog with pre-computed product embeddings. It will be matched
+   * against the embeddings from retrieval_embedding_columns during retrieval.
    */
   text: string;
 
@@ -1325,19 +1331,24 @@ export interface CatalogTextSearchParams {
   price_min?: number | null;
 
   /**
-   * The column to use for the ranking embedding. The default is 'embedding'.
+   * The columns to use for the ranking embeddings. If not specified, defaults to
+   * ['embedding']. Pick the column that best corresponds to the `ranking_text`
+   * parameter.
    */
-  ranking_embedding_column?: string;
+  ranking_embedding_columns?: Array<'embedding' | 'style_embedding' | 'tags_embedding'> | null;
 
   /**
    * The text is converted to a vector embedding and used to rank the search results.
+   * It will be matched against the embeddings from ranking_embedding_columns during
+   * ranking.
    */
   ranking_text?: string | null;
 
   /**
-   * The column to use for the retrieval embedding. The default is 'embedding'.
+   * The columns to use for the retrieval embeddings. If not specified, defaults to
+   * ['embedding']. Pick the column that best corresponds to the `text` parameter.
    */
-  retrieval_embedding_column?: string;
+  retrieval_embedding_columns?: Array<'embedding' | 'style_embedding' | 'tags_embedding'> | null;
 }
 
 export interface CatalogUploadFileParams {
